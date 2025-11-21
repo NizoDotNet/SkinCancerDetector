@@ -1,4 +1,5 @@
 /data
+/saved-models-and-addtional
 *.png
 *.keras
 *.jpg
