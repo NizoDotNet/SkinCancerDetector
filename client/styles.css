@@ -16,8 +16,15 @@ body {
   align-items: center;
 }
 
-.input-file {
-  visibility: ;
-  height: 100%;
-  width: 100%;
+#upload-file-container {
+  border: dashed;
+  border-color: antiquewhite;
+  border-width: 5px;
+  border-radius: 5%;
+  height: 200px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
