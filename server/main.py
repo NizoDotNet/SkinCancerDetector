@@ -1,9 +1,8 @@
 from fastapi import FastAPI
-from fastapi import File, UploadFile
-import tensorflow as tf
+from fastapi import  UploadFile
 from keras.models import load_model
 from predict import predict
-
+TF_ENABLE_ONEDNN_OPTS=0
 model = load_model('skin-can.keras')
 app = FastAPI()
 
