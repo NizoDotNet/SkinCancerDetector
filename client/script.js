@@ -1,9 +1,16 @@
 "use sctrict";
 
-const BACKEND = "";
-const file = null;
+const BACKEND = "http://127.0.0.1:8000"; // change it if server uses different port!!
+let file = null;
 const fileInput = document.getElementById("file-input");
 const fileInputConteiner = document.getElementById("upload-file-container");
+const submitBtn = document.getElementById("submit-button");
+const form = document.getElementById("form");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  await getResults();
+});
 
 const messageBox = document.getElementById("upload-file-message");
 fileInputConteiner.addEventListener("click", () => {
@@ -22,12 +29,18 @@ fileInput.addEventListener("change", (e) => {
 async function getResults() {
   if (file === null) {
     messageBox.textContent = "Pleas select file from local";
+    return;
   }
   try {
-    await fetch(`${BACKEND}/skin-can/detector`, {
+    const formData = new FormData();
+    formData.append("img", file);
+    console.log("trying fetch data");
+    const res = await fetch(`${BACKEND}/skin-can/detector`, {
       method: "POST",
-      body: file,
+      body: formData,
     });
+    const json = await res.json();
+    messageBox.textContent = json.result;
   } catch (e) {
     console.log(e);
   }

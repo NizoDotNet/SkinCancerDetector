@@ -2,10 +2,20 @@ from fastapi import FastAPI
 from fastapi import  UploadFile
 from keras.models import load_model
 from predict import predict
-TF_ENABLE_ONEDNN_OPTS=0
 model = load_model('skin-can.keras')
 app = FastAPI()
+from fastapi.middleware.cors import CORSMiddleware
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://127.0.0.1:5500",
+        "http://localhost:5500",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 excepted_content_types = ('image/jpeg', 'image/png', 'image/jpg')
 @app.post('/skin-can/detector')
 def skin_can_detect(img: UploadFile):
