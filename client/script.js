@@ -2,11 +2,18 @@
 
 const BACKEND = "http://127.0.0.1:8000"; // change it if server uses different port!!
 let file = null;
+let filePath = "";
 const fileInput = document.getElementById("file-input");
 const fileInputConteiner = document.getElementById("upload-file-container");
 const submitBtn = document.getElementById("submit-button");
+const uploadBtn = document.getElementById("upload-button");
+const imgPreview = document.getElementById("image-preview");
+
 const form = document.getElementById("form");
 
+uploadBtn.addEventListener("click", () => {
+  openUploadFile();
+});
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   await getResults();
@@ -24,6 +31,7 @@ fileInput.addEventListener("change", (e) => {
   }
   messageBox.textContent = e.target.files[0].name;
   file = e.target.files[0];
+  imgPreview.src = URL.createObjectURL(file);
 });
 
 function openUploadFile() {

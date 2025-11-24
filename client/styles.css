@@ -61,7 +61,7 @@ body {
 }
 #upload-file-container {
   border: dashed;
-  border-color: antiquewhite;
+  border-color: rgb(14, 138, 183);
   border-width: 5px;
   border-radius: 5%;
   height: 200px;
@@ -70,6 +70,7 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 
 .form-container {
@@ -91,7 +92,7 @@ body {
   padding-bottom: 13px;
   font-size: 15px;
   cursor: pointer;
-  transition: background-color 0.25s ease;
+  transition: opacity 0.25s ease;
 }
 
 .button:hover {
@@ -108,4 +109,8 @@ body {
 #upload-button {
   background-color: rgb(14, 138, 183);
   color: white;
+}
+
+#image-preview {
+  object-fit: contain;
 }
