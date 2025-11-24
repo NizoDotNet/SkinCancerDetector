@@ -8,15 +8,22 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: rgb(201, 201, 201);
 }
 
 .navbar {
-  height: 40px;
+  height: 60px;
   background-color: rgb(14, 138, 183);
   display: flex;
   align-items: center;
+  margin-bottom: 40px;
+}
+
+.brand-name {
+  justify-self: center;
   color: white;
-  font-size: larger;
+  font-size: 25px;
+  cursor: pointer;
 }
 .container {
   width: 100%; /* Ensures the container takes full width by default */
@@ -63,4 +70,42 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 24px;
+  padding-left: 24px;
+  border-radius: 12px;
+}
+
+.button {
+  border: 0;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.button:hover {
+  opacity: 0.7;
+}
+
+.buttons-group {
+  display: flex;
+  margin-top: 20px;
+  padding-left: 5px;
+  gap: 10px;
+}
+
+#upload-button {
+  background-color: rgb(14, 138, 183);
+  color: white;
 }

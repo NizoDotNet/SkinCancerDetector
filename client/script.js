@@ -14,7 +14,7 @@ form.addEventListener("submit", async (e) => {
 
 const messageBox = document.getElementById("upload-file-message");
 fileInputConteiner.addEventListener("click", () => {
-  fileInput.click();
+  openUploadFile();
 });
 
 fileInput.addEventListener("change", (e) => {
@@ -25,6 +25,10 @@ fileInput.addEventListener("change", (e) => {
   messageBox.textContent = e.target.files[0].name;
   file = e.target.files[0];
 });
+
+function openUploadFile() {
+  fileInput.click();
+}
 
 async function getResults() {
   if (file === null) {
